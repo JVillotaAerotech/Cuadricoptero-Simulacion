@@ -62,7 +62,7 @@ El launch file inicializado es el encargado de crear el puente (bridge) que perm
 
 Puedes encontrar el workspace completo y todos los archivos necesarios en el siguiente enlace:
 
-[Enlace al Workspace](#)
+https://drive.google.com/file/d/1ZkDIfwzHk8og5frR2m2hEBTuJJRd2brW/view?usp=drive_link(#)
 
 
   
