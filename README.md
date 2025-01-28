@@ -57,6 +57,11 @@ El launch file inicializado es el encargado de crear el puente (bridge) que perm
    No se muestra información; no se está publicando ningún dato.
 
 ---
+## **Ficheros clave**
+En los directorios /models se pueden encontrar los modelos sdf sobre los que bebe el launch file.
+En el directorio /launch se pueden encontrar los ficheros launch relativos al setup mencionado
+En el directorio /launch/config se puede encontrar el fichero YAML que especifica los bridges que se crean.
+En el fichero env_bashrc se muestra variables de entorno relevantes sobre las que se ha trabajado.
 
 ## **Workspace Completo**
 
