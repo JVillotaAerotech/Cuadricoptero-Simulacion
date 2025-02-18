@@ -1,77 +1,61 @@
-# Cuadricóptero Simulación
+# ROS2 Workspace del Dron
 
-Este repositorio contiene todo lo necesario para la simulación de un cuadricóptero utilizando **ROS 2**, **Gazebo** y **ArduPilot**. A continuación, se detallan las versiones utilizadas, instrucciones de configuración y un problema conocido.
+Este repositorio proporciona un espacio de trabajo ROS2 para simular y controlar un dron utilizando el paquete [ArduPilot Gazebo Bringup](https://github.com/ardupilot/ardupilot_gz_bringup) y MAVProxy. La configuración te permite lanzar la simulación del dron y conectarte a ella usando MAVProxy.
 
----
+## Prerrequisitos
 
-## 🚀 **Versiones Utilizadas**
+- **ROS2:** Asegúrate de tener instalada la distribución ROS2 Humble.
+- **ArduPilot y Gazebo:** El paquete `ardupilot_gz_bringup` debe estar correctamente configurado en tu espacio de trabajo.
+- **MAVProxy:** Instala MAVProxy para conectarte y controlar el dron.
+- **Dependencias:** Asegúrate de que todas las dependencias necesarias estén instaladas en tu espacio de trabajo ROS2.
 
-- **Gazebo Garden:** 7.9.0  
-- **ROS 2:** Humble  
-- **ArduPilot ArduCopter:** v4.7.0-dev
+## Instalación
 
----
+1. **Descargar el workspace:**
 
-## 🔧 **Configuración del Entorno**
+   Descarga el espacio de trabajo desde Google Drive en la carpeta `detection_drone`.
 
-### 1. **Inicialización del Launch File**
+2. **Fuente del entorno ROS2:**
 
-Ejecuta un archivo de lanzamiento del paquete `ardupilot_gz_bringup`. Este archivo se encuentra en el directorio `/launch` bajo el nombre `iris_runway.launch.py`.
+   ```bash
+   source /opt/ros/humble/setup.bash
+   ```
 
-Para iniciarlo, ejecuta:
+3. **Compilar el espacio de trabajo:**
+
+   Usa `colcon` para compilar el espacio de trabajo:
+
+   ```bash
+   colcon build
+   ```
+
+4. **Fuente del espacio de trabajo:**
+
+   Después de compilar, fuente el archivo de configuración del espacio de trabajo:
+
+   ```bash
+   source install/setup.bash
+   ```
+
+## Uso
+
+### Lanzar la simulación del dron
 
 ```bash
-ros2 launch ardupilot_gz_bringup iris_maze.launch.py
+ros2 launch ardupilot_gz_bringup iris_runway.launch.py
 ```
 
-### 2. **Inicialización de MAVProxy**
-
-Asegúrate de iniciar MAVProxy apuntando al puerto maestro especificado en el launch file.
-
-Ejecuta el siguiente comando:
+### Conectarse con MAVProxy
 
 ```bash
 mavproxy.py --master udp:127.0.0.1:14550
 ```
 
-Con esto, ya podrás interactuar con el dron mediante los comandos de MAVProxy.
+## Solución de problemas
 
----
+- **Entorno ROS2 no cargado:**  
+  Asegúrate de haber cargado el archivo de configuración correcto de ROS2 (`/opt/ros/humble/setup.bash`) y el `install/setup.bash` de tu espacio de trabajo antes de lanzar la simulación.
 
-## ⚠️ **Problema Conocido**
-
-El launch file inicializado es el encargado de crear el puente (bridge) para la comunicación entre **ROS 2** y **Gazebo**. Los bridges se generan con el paquete `ros_gz_bridge`, utilizando el ejecutable `parameter_bridge`. Este ejecutable toma como entrada el archivo YAML `iris_bridge.yaml`, ubicado en el directorio `/launch/config`.
-
-### 🔍 **Observaciones**
-
-1. Los topics son visibles al ejecutar:
-
-   ```bash
-   ros2 topic list
-   ```
-
-2. Sin embargo, al intentar escuchar un topic específico:
-
-   ```bash
-   ros2 topic echo /<nombre_topic>
-   ```
-
-   No se muestra información; no se está publicando ningún dato.
-
----
-
-## 📂 **Estructura de Directorios Clave**
-
-- `/models`: Contiene los modelos SDF utilizados por el launch file.
-- `/launch`: Archivos de lanzamiento para la configuración del entorno.
-- `/launch/config`: Archivo YAML que especifica los bridges.
-- `env_bashrc`: Variables de entorno relevantes utilizadas durante el desarrollo.
-
----
-
-## 🌐 **Workspace Completo**
-
-Puedes acceder al workspace completo y a todos los archivos necesarios desde el siguiente enlace:
-
-[**Descargar Workspace Completo**](https://drive.google.com/file/d/1ZkDIfwzHk8og5frR2m2hEBTuJJRd2brW/view?usp=drive_link)
+- **Problemas de conexión con MAVProxy:**  
+  Verifica que la simulación esté en ejecución y que el puerto UDP `14550` esté disponible. Ajusta el parámetro `--master` si es necesario.
 
