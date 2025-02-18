@@ -14,7 +14,7 @@ Este repositorio proporciona un espacio de trabajo ROS2 para simular y controlar
 1. **Descargar el workspace:**
 
    Descarga el espacio de trabajo desde Google Drive en la carpeta `detection_drone`.
-
+   https://drive.google.com/drive/folders/1B1hWEWrIiWW2aeqaD2y9ZvxBIOtsBYCg
 2. **Fuente del entorno ROS2:**
 
    ```bash
