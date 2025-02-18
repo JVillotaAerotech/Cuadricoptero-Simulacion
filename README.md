@@ -1,6 +1,6 @@
-# ROS2 Workspace del Dron
+# ROS2 Workspace del Dron detecta personas
 
-Este repositorio proporciona un espacio de trabajo ROS2 para simular y controlar un dron utilizando el paquete [ArduPilot Gazebo Bringup](https://github.com/ardupilot/ardupilot_gz_bringup) y MAVProxy. La configuración te permite lanzar la simulación del dron y conectarte a ella usando MAVProxy.
+Este repositorio proporciona un espacio de trabajo ROS2 para simular y controlar un dron que detecta personas utilizando el paquete [ArduPilot Gazebo Bringup](https://github.com/ardupilot/ardupilot_gz_bringup) y MAVProxy. La configuración te permite lanzar la simulación del dron y conectarte a ella usando MAVProxy.
 
 ## Prerrequisitos
 
